@@ -37,6 +37,7 @@ void main() {
   bool.parse('true');
 
   10.toString(); // '10'
+
 }
 
 

@@ -19,15 +19,14 @@ void main() {
   //Explict cast => Manually have to cast/convert
 
   //Implict cast Example
-  double weightDouble = 65; //int=>double
-  num weightNum = weightDouble; //double=>num
-  int ageInt = 30;
-  num ageNum = ageInt; //int=>num
+  double weightDouble = 65; //int=>double //memory=>65.0
+  
 
   //Explict ast Example
   int ageIntExplict = 25.0.toInt(); //double=>int
-  num ageNumExplicit = 35;
-  ageIntExplict = ageNumExplicit.toInt(); //num=>int
+
+
+
 
   ageIntExplict = int.parse('34');
 

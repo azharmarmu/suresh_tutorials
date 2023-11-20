@@ -1,10 +1,12 @@
 void main() {
-  // syntax:
+  // syntax/structre: for Data Declaration
   // datatype variablName/identifier = value;
 
   int a = 10; // data definition
   String name = 'Suresh';
 
+  // syntax/structre: for Data Declaration
+  // datatype variablName/identifier;
   bool isVerfied; // data declaration
   isVerfied = true; // data initializaition // assign
 
@@ -22,7 +24,6 @@ void main() {
   gender = true;
 
   print(firstName.runtimeType);
-
 }
 
 //Rules for VariableName/ Identifer

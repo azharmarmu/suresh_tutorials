@@ -1,0 +1,24 @@
+// DataTypes => int, num,double, bool, String etc
+// Advance DataTypes => List, Map, Set
+// operators 
+// if, if-else, nested-if, Terninary opertor (?:)
+// loops
+// functions -> with arg(positional and named paramters), without arg
+// class-> Blueprint
+// constructor
+// properties (data member(var/identifier), member functions/method)
+
+//oops - object orientented programming structure/language
+// Inheritence, Polymorphism, Abstraction, Encaplsulation
+
+int a  = 10;
+
+String b;
+
+ClassA a = ClassA();
+
+
+
+class ClassA{
+  
+}

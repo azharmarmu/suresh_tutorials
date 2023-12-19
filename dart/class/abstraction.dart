@@ -1,24 +1,13 @@
-/**
- * 
- * Create Super/Base class called Shape which has properties like(methods)=> area, perimeter , fields pi.
- * 
- * Create Derived class as  Square and Circle and Override those methods
- * 
- */
-
 import 'dart:math' as math;
 
-class Shape {
+abstract class Shape {
   final double pi = 22 / 7;
 
-  num area() {
-    return 0;
-  }
-
-  num perimeter() {
-    return 0;
-  }
+  num area();
+  num perimeter();
 }
+// 1. You are restricting to instantiate the object/instance
+// 2. Hiding the implementation/value
 
 class Square extends Shape {
   final side; //data members / fields

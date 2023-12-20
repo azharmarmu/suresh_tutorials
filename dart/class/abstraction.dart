@@ -12,15 +12,17 @@ abstract class Shape {
 class Square extends Shape {
   final side; //data members / fields
 
-  Square(this.side); // constructor
+  Square(this.side);
 
-  @override //member function / method
-  num area() => side * side;
+  @override
+  num area() {
+    return side * side;
+  }
 
   @override
   num perimeter() {
     return 4 * side;
-  }
+  } // constructor
 }
 
 class Circle extends Shape {

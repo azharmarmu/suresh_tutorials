@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sample_app/pages/widgets/row_widget.dart';
-
-import 'widgets/column_widget.dart';
+import 'widgets/container.dart';
+import 'widgets/image_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,14 +10,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.green,
       appBar: AppBar(
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.blue,
         centerTitle: true,
         title: const Text('Title'),
       ),
       // body: ColumnWidget(),
       body: ColoredBox(
         color: Colors.black12,
-        child: ColumnWidget(),
+        child: ContainerWidget(),
       ),
     );
   }

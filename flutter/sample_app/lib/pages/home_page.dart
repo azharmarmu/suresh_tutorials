@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/container.dart';
-import 'widgets/image_widget.dart';
+import 'widgets/stack_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,17 +7,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.white.withOpacity(0.85),
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
         title: const Text('Title'),
       ),
       // body: ColumnWidget(),
-      body: ColoredBox(
-        color: Colors.black12,
-        child: ContainerWidget(),
-      ),
+      body: const StackExample(),
     );
   }
 }

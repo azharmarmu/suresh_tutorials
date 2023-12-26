@@ -7,7 +7,7 @@ class ContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         left: 12,
         top: 16,
       ),
@@ -15,14 +15,23 @@ class ContainerWidget extends StatelessWidget {
       height: 100,
       width: 400,
       decoration: BoxDecoration(
-        color: Colors.amber,
+        image: const DecorationImage(
+          image: AssetImage('asset/images/flower2.webp'),
+          fit: BoxFit.cover,
+        ),
         borderRadius: BorderRadius.circular(50),
         border: Border.all(
           color: Colors.black,
         ),
-
       ),
-      child: Text('Hello'),
+      child: const Text(
+        'Hello',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 24,
+          fontWeight: FontWeight.w800,
+        ),
+      ),
     );
   }
 }

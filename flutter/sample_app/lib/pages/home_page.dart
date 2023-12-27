@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/stack_widget.dart';
+import 'package:sample_app/pages/tasks/calculator.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
         title: const Text('Title'),
       ),
       // body: ColumnWidget(),
-      body: const StackExample(),
+      body: const CalculatorWidget(),
     );
   }
 }

@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(45 / 2),
               child: Image.network(
-                fakeData[index]['image_url'],
+                userFakeList[index].imageUrl,
                 width: 45,
                 height: 45,
                 fit: BoxFit.cover,
@@ -40,29 +40,29 @@ class HomeScreen extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(fakeData[index]['title']),
-                Text(fakeData[index]['description']),
+                Text(userFakeList[index].title),
+                Text(userFakeList[index].description),
               ],
             ),
             const Spacer(),
             Column(
               children: [
-                Text(fakeData[index]['time']),
-                if (fakeData[index]['count'] > 0)
+                Text(userFakeList[index].time),
+                if (userFakeList[index].count > 0)
                   Container(
                     padding: const EdgeInsets.all(6),
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.green,
                     ),
-                    child: Text('${fakeData[index]['count']}'),
+                    child: Text('${userFakeList[index].count}'),
                   )
               ],
             )
           ],
         ),
         separatorBuilder: (_, int index) => const SizedBox(height: 12),
-        itemCount: fakeData.length,
+        itemCount: userFakeList.length,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},

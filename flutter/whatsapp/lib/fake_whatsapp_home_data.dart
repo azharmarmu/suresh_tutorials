@@ -27,3 +27,36 @@ List<Map<String, dynamic>> fakeData = [
     'count': 2,
   }
 ];
+
+
+List<UserModel> userFakeList = fakeData.map((e) => UserModel.fromJson(e)).toList();
+
+
+class UserModel {
+  final int userId;
+  final String imageUrl;
+  final String title;
+  final String description;
+  final String time;
+  final int count;
+
+  const UserModel({
+    required this.userId,
+    required this.imageUrl,
+    required this.title,
+    required this.description,
+    required this.time,
+    required this.count,
+  });
+
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      userId: json['user_id'],
+      imageUrl: json['image_url'],
+      title: json['title'],
+      description: json['description'],
+      time: json['time'],
+      count: json['count'],
+    );
+  }
+}

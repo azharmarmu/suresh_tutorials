@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:whatsapp/screens/second_screen.dart';
+
+import '../my_app.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,23 +9,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            if (Navigator.canPop(context)) {
-              Navigator.pop(context);
-            }
-          },
-          icon: const Icon(Icons.arrow_back),
-        ),
+        title: const Text('Home Screen'),
       ),
       body: Center(
           child: ElevatedButton(
         onPressed: () {
-          Navigator.push(
+          Navigator.pushNamed(
             context,
-            CupertinoPageRoute(
-              builder: (context) => const SecondScreen(),
-            ),
+            AppRouteConstants.second,
           );
         },
         child: const Text('Move to Second Screen'),

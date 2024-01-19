@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/my_app.dart';
 
-import '../my_app.dart';
-
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
+class ThirdScreen extends StatelessWidget {
+  const ThirdScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        title: const Text('Second Screen'),
+        title: const Text('Third Screen'),
         leading: IconButton(
           onPressed: () {
             if (Navigator.canPop(context)) {
@@ -23,15 +22,18 @@ class SecondScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const Text('Second Screen'),
+            const Text('Third Screen'),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(
+                Navigator.popUntil(
                   context,
-                  AppRouteConstants.third,
+                  (Route route) {
+                    final val = route.settings.name == AppRouteConstants.home;
+                    return val;
+                  },
                 );
               },
-              child: const Text('Move to Third Screen'),
+              child: const Text('Remove all Routes'),
             )
           ],
         ),

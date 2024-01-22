@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      initialRoute: AppRouteConstants.home,
       onGenerateRoute: generateRoute,
     );
   }
@@ -21,18 +21,24 @@ class MyApp extends StatelessWidget {
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case AppRouteConstants.home:
-      return MaterialPageRoute(builder: (context) => const HomeScreen());
+      return MaterialPageRoute(
+        builder: (context) => const HomeScreen(),
+        settings: const RouteSettings(name: AppRouteConstants.home),
+      );
     case AppRouteConstants.second:
       return MaterialPageRoute(builder: (context) => const SecondScreen());
     case AppRouteConstants.third:
-      return MaterialPageRoute(builder: (context) => const ThirdScreen());
+      return MaterialPageRoute(
+        builder: (context) => const ThirdScreen(),
+        settings: const RouteSettings(name: AppRouteConstants.third),
+      );
     default:
       return MaterialPageRoute(builder: (context) => const DefaultScreen());
   }
 }
 
 class AppRouteConstants {
-  static const String home = '/home ';
+  static const String home = '/';
   static const String second = '/second';
   static const String third = '/third';
 }

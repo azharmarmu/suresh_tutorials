@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'utils/app_route_constants.dart';
+import 'utils/app_theme.dart';
 import 'utils/route.dart';
 
 class MyApp extends StatelessWidget {
@@ -8,12 +9,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: appTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRouteConstants.home,
+      initialRoute: AppRouteConstants.homeScreen,
       onGenerateRoute: generateRoute,
     );
   }
 }
-
-

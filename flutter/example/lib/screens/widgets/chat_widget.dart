@@ -5,8 +5,11 @@ class ChatWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Chat'),
+    return Center(
+      child: Text(
+        'Chat',
+        style: Theme.of(context).textTheme.bodySmall,
+      ),
     );
   }
 }

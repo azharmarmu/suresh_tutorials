@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp/screens/widgets/chat_widget.dart';
 import 'package:whatsapp/screens/widgets/home_widget.dart';
 import 'package:whatsapp/screens/widgets/settings_widget.dart';
+import 'package:whatsapp/utils/app_strings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Screen'),
+        title: const Text(AppStrings.welcome),
       ),
       body: IndexedStack(
         index: currentIndex,

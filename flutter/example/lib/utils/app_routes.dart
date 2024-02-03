@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/home_page.dart';
 
-import '../pages/error_page.dart';
-import '../pages/home_page.dart';
+import '../error_page.dart';
 
-Route<dynamic>? appRoutes(RouteSettings settings) {
-  switch (settings.name) {
-    case AppRouteNames.home:
-      return MaterialPageRoute(
-        builder: (context) => HomePage(),
-      );
-
-    default:
-      return MaterialPageRoute(
-        builder: (context) => const ErrorPage(),
-      );
-  }
+class AppRoutes {
+  static const String rootPage = '/';
 }
 
-class AppRouteNames {
-  static const String home = '/';
+Route<dynamic>? appGeneratedRoutes(RouteSettings args) {
+  switch (args.name) {
+    case AppRoutes.rootPage:
+      return MaterialPageRoute(builder: (_) => const HomePage());
+    default:
+      return MaterialPageRoute(builder: (_) => const ErrorPage());
+  }
 }

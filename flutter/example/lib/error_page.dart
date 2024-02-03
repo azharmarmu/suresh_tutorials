@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/utils/app_strings.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({super.key});
@@ -8,7 +7,7 @@ class ErrorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text(AppStrings.invalidRouteMessage),
+        child: Text('Invalid Route'),
       ),
     );
   }

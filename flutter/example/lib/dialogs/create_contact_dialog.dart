@@ -66,6 +66,7 @@ class CreateContactDialog extends StatelessWidget {
                       ),
                     );
                   } else {
+                    //save value to DB
                     contacts.add(
                       ContactModel(name: name, number: number),
                     );

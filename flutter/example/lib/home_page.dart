@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/database/shared_preferences.dart';
 
 import 'database/contacts.dart';
 import 'dialogs/create_contact_dialog.dart';
@@ -11,6 +12,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final SharedPreferencesDB sharedDB = SharedPreferencesDB();
+  final controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +22,30 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Contacts'),
       ),
+      // body: Column(
+      //   children: [
+      //     TextField(
+      //       controller: controller,
+      //     ),
+      //     TextButton(
+      //       onPressed: () {
+      //         sharedDB.setSecretValue(controller.text.trim());
+      //         setState(() {});
+      //       },
+      //       child: const Text('Save'),
+      //     ),
+      //     const SizedBox(height: 48),
+      //     FutureBuilder(
+      //       future: SharedPreferencesDB().getSecretValue(),
+      //       builder: (_, snaps) {
+      //         if (snaps.connectionState == ConnectionState.done) {
+      //           return Text('Secret Value: ${snaps.data}');
+      //         }
+      //         return const SizedBox.shrink();
+      //       },
+      //     ),
+      //   ],
+      // ),
       body: contacts.isEmpty
           ? const Center(
               child: Text('No Contacts'),

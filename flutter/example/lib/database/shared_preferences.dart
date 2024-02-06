@@ -1,13 +1,32 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesDB {
-  void setSecretValue(String value) async {
+
+  //Push
+  void setPushValue(bool value) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('secretKey', value);
+    prefs.setBool('push', value);
   }
 
-  Future<String> getSecretValue() async {
+  Future<bool> getPushValue() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString('secretKey') ?? '';
+    return prefs.getBool('push') ?? false;
   }
+
+
+  //Theme
+  void setThemeValue(bool value) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('theme', value);
+  }
+
+  Future<bool> getThemeValue() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('theme') ?? false;
+  }
+
+  //Name
+
+
+  //Mobile Number
 }

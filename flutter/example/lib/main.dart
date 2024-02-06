@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/utils/app_routes.dart';
 
-void main() => runApp(const ContactApp());
+void main() => runApp(const MyApp());
 
-class ContactApp extends StatelessWidget {
-  const ContactApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

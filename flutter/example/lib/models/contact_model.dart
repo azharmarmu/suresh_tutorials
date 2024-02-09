@@ -7,10 +7,15 @@ class ContactModel {
     required this.number,
   });
 
-  factory ContactModel.fromJson(Map<String, dynamic> json) {
+  factory ContactModel.fromJson(Map<dynamic, dynamic> json) {
     return ContactModel(
       name: json['name'],
       number: json['number'],
     );
   }
+
+  Map<String, dynamic> toMap() => {
+        'name': name,
+        'number': number,
+      };
 }

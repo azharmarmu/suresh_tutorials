@@ -4,10 +4,14 @@ import 'package:whatsapp/models/contact_model.dart';
 import '../database/contacts.dart';
 
 class CreateContactDialog extends StatelessWidget {
+  final List<ContactModel> contacts;
   final TextEditingController nameController = TextEditingController();
   final TextEditingController numberController = TextEditingController();
 
-  CreateContactDialog({super.key});
+  CreateContactDialog({
+    super.key,
+    required this.contacts,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +71,8 @@ class CreateContactDialog extends StatelessWidget {
                     );
                   } else {
                     //save value to DB
-                    contacts.add(
-                      ContactModel(name: name, number: number),
-                    );
+                    contacts.add(ContactModel(name: name, number: number));
+                    saveContact(contacts);
                     Navigator.pop(context);
                   }
                 },

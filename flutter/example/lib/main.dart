@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:whatsapp/utils/app_routes.dart';
 
-void main() => runApp(const ContactApp());
+Future<void> main() async {
+  await Hive.initFlutter();
+  runApp(const ContactApp());
+}
 
 class ContactApp extends StatelessWidget {
   const ContactApp({super.key});

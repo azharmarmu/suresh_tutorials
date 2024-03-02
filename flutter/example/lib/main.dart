@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/utils/app_routes.dart';
+
+import 'home_page.dart';
 
 void main() {
-  runApp(const ContactApp());
+  runApp(const BlocApp());
 }
 
-class ContactApp extends StatelessWidget {
-  const ContactApp({super.key});
+class BlocApp extends StatelessWidget {
+  const BlocApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      initialRoute: AppRoutes.rootPage,
-      onGenerateRoute: appGeneratedRoutes,
+    return MaterialApp(
+      home: HomePage(),
     );
   }
 }

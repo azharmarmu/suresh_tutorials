@@ -1,35 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp/bloc/counter_cubit.dart';
 
-import 'networks/app_network.dart';
+import 'bloc/greet_cubit.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final cubit = GreetCubit('Hello');
+  final counterCubit = CounterCubit();
 
   @override
   Widget build(BuildContext context) {
+    print('Build');
     return Scaffold(
-      body: FutureBuilder(
-        future: getApi('/todos/1'),
-        builder: (_, snaps) {
-          if (snaps.connectionState == ConnectionState.done) {
-            if (snaps.data != null) {
-              Map<String, dynamic> data = snaps.data!;
-              return Center(
-                child: Column( //ListView
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('UserId: ${data['userId']}'),
-                    Text('ID: ${data['id']}'),
-                    Text('Title: ${data['title']}'),
-                    Text('Completed: ${data['completed']}'),
-                  ],
-                ),
-              );
-            }
-          }
-          return const SizedBox.shrink();
-        },
+      appBar: AppBar(
+        title: const Text('Bloc Concepts'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            BlocBuilder<CounterCubit, int>(
+              bloc: counterCubit,
+              builder: (context, state) {
+                print('BlocBuilder-CounterCubit');
+                return Text('$state');
+              },
+            ),
+            //widget2
+            //widget3
+            //widget4
+            // BlocBuilder<CounterCubit, int>(
+            //   bloc: counterCubit,
+            //   builder: (context, state) {
+            //     print('BlocBuilder-CounterCubit');
+            //     return Icon();
+            //   },
+            // ),
+            //widget6
+            //widgetn
+          ],
+        ),
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              counterCubit.increment();
+            },
+            child: const Icon(Icons.add),
+          ),
+          const SizedBox(width: 24),
+          FloatingActionButton(
+            onPressed: () {
+              counterCubit.decrement();
+            },
+            child: const Icon(Icons.remove),
+          ),
+        ],
       ),
     );
   }

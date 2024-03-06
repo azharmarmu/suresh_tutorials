@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp/bloc/xox_cubit.dart';
 
 import '../../utils/app_strings.dart';
 import 'play_box.dart';
@@ -23,6 +25,8 @@ class _PlayAreaState extends State<PlayArea> {
     win = false;
     setState(() {});
   }
+
+  final cubit = XOXCubit();
 
   @override
   Widget build(BuildContext context) {
@@ -49,15 +53,20 @@ class _PlayAreaState extends State<PlayArea> {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                PlayBox(
-                  value: values[0],
-                  onTap: () {
-                    if (win == false && values[0].isEmpty) {
-                      values[0] = logic();
-                      coverage = values.where((e) => e.isNotEmpty).length;
-                      winningCombinationCheck();
-                      setState(() {});
-                    }
+                BlocBuilder<XOXCubit, String>(
+                  bloc: cubit,
+                  builder: (context, state) {
+                    return PlayBox(
+                      value: state,
+                      onTap: () {
+                        if (win == false && values[0].isEmpty) {
+                          values[0] = logic();
+                          coverage = values.where((e) => e.isNotEmpty).length;
+                          winningCombinationCheck();
+                          cubit.input(values[0]);
+                        }
+                      },
+                    );
                   },
                 ),
                 const SizedBox(width: 24),

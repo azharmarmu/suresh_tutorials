@@ -14,6 +14,7 @@ class PlayArea extends StatefulWidget {
 
 class _PlayAreaState extends State<PlayArea> {
   List<String> values = List.generate(9, (index) => '');
+  List<XOXCubit> cubits = List.generate(9, (index) => XOXCubit());
   bool isOddClick = true;
   int coverage = 0;
   bool win = false;
@@ -26,7 +27,7 @@ class _PlayAreaState extends State<PlayArea> {
     setState(() {});
   }
 
-  final cubit = XOXCubit();
+
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +55,7 @@ class _PlayAreaState extends State<PlayArea> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 BlocBuilder<XOXCubit, String>(
-                  bloc: cubit,
+                  bloc: cubits[0],
                   builder: (context, state) {
                     return PlayBox(
                       value: state,
@@ -63,7 +64,7 @@ class _PlayAreaState extends State<PlayArea> {
                           values[0] = logic();
                           coverage = values.where((e) => e.isNotEmpty).length;
                           winningCombinationCheck();
-                          cubit.input(values[0]);
+                          cubits[0].input(values[0]);
                         }
                       },
                     );

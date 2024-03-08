@@ -27,8 +27,6 @@ class _PlayAreaState extends State<PlayArea> {
     setState(() {});
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -54,17 +52,23 @@ class _PlayAreaState extends State<PlayArea> {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                BlocBuilder<XOXCubit, String>(
+                BlocConsumer<XOXCubit, String>(
                   bloc: cubits[0],
+                  listener: (context, state) {
+                    //state -x , x will listen
+                    print('BlocListener: $state');
+                  },
                   builder: (context, state) {
+                    // state -> x , x wil not rebuild
+                    print('BlocBuilder: $state');
                     return PlayBox(
                       value: state,
                       onTap: () {
-                        if (win == false && values[0].isEmpty) {
+                        if (win == false) {
                           values[0] = logic();
                           coverage = values.where((e) => e.isNotEmpty).length;
                           winningCombinationCheck();
-                          cubits[0].input(values[0]);
+                          cubits[0].input('x');
                         }
                       },
                     );

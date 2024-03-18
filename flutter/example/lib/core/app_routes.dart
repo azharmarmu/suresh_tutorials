@@ -11,6 +11,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         settings: const RouteSettings(name: AppRouteConstants.home),
       );
 
+    case AppRouteConstants.postDetail:
+      return MaterialPageRoute(
+        builder: (context) => const PostDetail(settings.arguments),
+        settings: const RouteSettings(name: AppRouteConstants.home),
+      );
+
     default:
       return MaterialPageRoute(builder: (context) => const DefaultScreen());
   }
@@ -18,4 +24,5 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
 class AppRouteConstants {
   static const String home = '/';
+  static const String postDetail = '/postDetail';
 }

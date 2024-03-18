@@ -28,9 +28,11 @@ class HomeScreen extends StatelessWidget {
             final item = state.todoList;
             return ListView.separated(
               itemBuilder: (_, index) => ListTile(
+                onTap: ()=> Navigator.pushNamed(context, routeName, arguments: item[index].id),
                 leading: Text('${item[index].id}'),
                 title: Text(item[index].title),
                 subtitle: Text(item[index].description),
+              
               ),
               separatorBuilder: (_, index) => const Divider(),
               itemCount: item.length,

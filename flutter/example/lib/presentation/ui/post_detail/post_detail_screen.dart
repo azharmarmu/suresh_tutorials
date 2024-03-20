@@ -11,11 +11,12 @@ class PostDetailScreen extends StatelessWidget {
     final postCubit = PostCubit();
     return Scaffold(
       appBar: AppBar(),
-      body: Padding(
+      body: AnimatedPadding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 12,
         ),
+        duration: const Duration(seconds: 2),
         child: BlocBuilder<PostCubit, PostState>(
           bloc: postCubit..fetchAPost(id),
           builder: (_, state) {

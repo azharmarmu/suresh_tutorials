@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../presentation/ui/default/default_screen.dart';
 import '../presentation/ui/home/home_screen.dart';
+import '../presentation/ui/post_detail/post_detail_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -13,7 +14,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case AppRouteConstants.postDetail:
       return MaterialPageRoute(
-        builder: (context) => const PostDetail(settings.arguments),
+        builder: (context) => PostDetailScreen(id: settings.arguments as int),
         settings: const RouteSettings(name: AppRouteConstants.home),
       );
 

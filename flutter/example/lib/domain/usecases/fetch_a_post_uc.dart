@@ -2,7 +2,7 @@ import 'package:whatsapp/domain/entities/post_entity.dart';
 
 import '../../data/repositories/post_repository.dart';
 
-class FetchAPosts {
+class FetchAPostUC {
   final repo = PostRepositoryImpl();
 
   Future<PostEntity> execute(int id) async {

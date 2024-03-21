@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../presentation/ui/add_post/add_post_screen.dart';
 import '../presentation/ui/default/default_screen.dart';
 import '../presentation/ui/home/home_screen.dart';
 import '../presentation/ui/post_detail/post_detail_screen.dart';
@@ -18,6 +19,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         settings: const RouteSettings(name: AppRouteConstants.home),
       );
 
+    case AppRouteConstants.addPost:
+      return MaterialPageRoute(
+        builder: (context) => const AddPostScreen(),
+        settings: const RouteSettings(name: AppRouteConstants.home),
+      );
+
     default:
       return MaterialPageRoute(builder: (context) => const DefaultScreen());
   }
@@ -26,4 +33,5 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 class AppRouteConstants {
   static const String home = '/';
   static const String postDetail = '/postDetail';
+  static const String addPost = '/addPost';
 }

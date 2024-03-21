@@ -6,6 +6,8 @@ abstract class PostRemoteDS {
   Future<List<PostModel>> fetchPosts();
 
   Future<PostModel> fetchAPost(int id);
+
+  Future<bool> saveAPost(PostModel params);
 }
 
 class PostRemoteDSImpl extends PostRemoteDS {
@@ -29,5 +31,14 @@ class PostRemoteDSImpl extends PostRemoteDS {
 
     //convert raw data to model
     return PostModel.fromJson(result);
+  }
+
+  @override
+  Future<bool> saveAPost(PostModel params) async {
+    final result = await postApi(AppEndpoints.posts, params.toJson());
+    if (result != null) {
+      return true;
+    }
+    return false;
   }
 }

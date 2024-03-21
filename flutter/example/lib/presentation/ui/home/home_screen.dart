@@ -33,10 +33,10 @@ class HomeScreen extends StatelessWidget {
                     arguments: posts[index].id,
                   );
                 },
-                leading: Text(posts[index].id.toString()),
+                leading: Text('ID: ${posts[index].id}'),
                 title: Text(posts[index].title),
                 subtitle: Text(posts[index].body),
-                trailing: Text(posts[index].userId.toString()),
+                trailing: Text('UserID: ${posts[index].userId}'),
               ),
               separatorBuilder: (_, index) => const Divider(),
               itemCount: posts.length,
@@ -46,7 +46,9 @@ class HomeScreen extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, AppRouteConstants.addPost);
+        },
         child: const Icon(Icons.add),
       ),
     );

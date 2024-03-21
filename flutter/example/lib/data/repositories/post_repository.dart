@@ -14,4 +14,9 @@ class PostRepositoryImpl extends PostRepository {
   Future<PostModel> fetchAPost(int id) {
     return ds.fetchAPost(id);
   }
+  
+  @override
+  Future<bool> saveAPost(PostModel params){
+    return ds.saveAPost(params);
+  }
 }
